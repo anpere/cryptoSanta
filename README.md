@@ -9,4 +9,10 @@ At the initialization of the game, Bob his given Alice as an assignment, but he 
 Alice's public key is known to everybody playing the game. So if anybody has a gift suggestion, they can use Alice's public key to encrypt the message, and only Bob will be able to decrypt it. Bob now knows what to get Alice, and Alice has no idea what the suggestion was.
 
 ## How to run:
-python main.py
+I hope you can tolerate how minimal this is.
+To add players edit the players variable in players.py
+The variable is map from player name to a player handle (how to contact them
+originally it was going to be email, but this project hasn't been quite fleshed
+out)
+Once you do that, just run:
+`python main.py`

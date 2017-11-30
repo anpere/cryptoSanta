@@ -3,6 +3,9 @@ from random import shuffle
 
 from Crypto.PublicKey import RSA
 from Crypto import Random
+
+# Edit here to add players
+# map from name to handle (email, messenger id, phone number, etc) can be empty
 players = {"alice": "alice@aperlas.com",
             "bob": "bob@aperlas.com",
             "charlie": "charlie@aperlas.com"}
