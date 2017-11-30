@@ -10,3 +10,7 @@ You and your friends are playing Secret Santa. You know what your friend Alice w
 Crypto to the Rescue
 At the initialization of the game, Bob his given Alice as an assignment, but he is also given a secret key corresponding to Alice.
 Alice's public key is known to everybody playing the game. So if anybody has a gift suggestion, they can use Alice's public key to encrypt the message, and only Bob will be able to decrypt it. Bob now knows what to get Alice, and Alice has no idea what the suggestion was.
+
+##
+How to run:
+python main.py
