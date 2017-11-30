@@ -6,9 +6,13 @@ from Crypto import Random
 
 # Edit here to add players
 # map from name to handle (email, messenger id, phone number, etc) can be empty
-players = {"alice": "alice@aperlas.com",
-            "bob": "bob@aperlas.com",
-            "charlie": "charlie@aperlas.com"}
+players = {
+    "alice": "alice@aperlas.com",
+    "bob": "bob@aperlas.com",
+    "charlie": "charlie@aperlas.com",
+    "delta": "delta@aperlas.com",
+    "echo": "echo@aperlas.com",
+}
 
 class Player(object):
     def __init__(self, name, handle):
@@ -47,13 +51,14 @@ class SSAssignment(object):
         # may infinite loop!
         targets = deepcopy(self.players)
         shuffle(targets)
+        msg = "assigning {} player {}"
         for player in self.players:
-            if player != targets[0]:
+            if player.name != targets[0].name:
                 player.assign_player(targets[0])
                 targets.pop(0)
             else:
                 if len(targets) == 1:
-                    self.assignPlayers()
+                    self.assign_players()
                 else:
                     player.assign_player(targets[1])
                     targets.pop(1)
@@ -73,6 +78,5 @@ class SSAssignment(object):
 def setupGame():
     game = SSAssignment(players)
     game.assign_players()
-    print(game)
     game.generate_keys()
     return game
