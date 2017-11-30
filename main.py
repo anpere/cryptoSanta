@@ -1,20 +1,31 @@
 from players import (
-    setupGame
+    setupGame,
+    Player,
 )
 from messenger import Emailer
 if __name__ == '__main__':
     sender = Emailer()
     game = setupGame()
     player_assignment = game.get_assignment()
-    s_msg = "Congrats on playing Secret Santa Your assignment is {}, you may use"\
-          "the following secret key to decrypt gift suggestions for them: \n"\
-          "{}\n happy playing!"
+    s_msg = (
+        "Player {} has {}. "
+        "You may give them the following secret key\n {}\n"
+        "Please make public assignment {}'s public key:\n {}\n"
+    )
 
     public_keys = {player.name: player.public_key for player in game.players}
-    p_msg = "Here are the following player public key pairings {}".format(public_keys)
+    p_msg = "Here are every player's public keys {}".format(public_keys)
+    secret_keys = {player.name: player.secret_key for player in game.players}
     for player in set(player_assignment):
-        print(player)
-        ## TODO
         assignment = player.assignment
-        msg = s_msg.format(assignment.name, assignment.secret_key)
+        assert isinstance(assignment, Player)
+        msg = s_msg.format(
+            player.name,
+            assignment.name,
+            secret_keys[assignment.name],
+            assignment.name,
+            public_keys[assignment.name],
+        )
         sender.send(player.handle, msg)
+
+    print(p_msg)
