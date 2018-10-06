@@ -9,7 +9,7 @@ At the initialization of the game, Bob is given Alice as an assignment, but he i
 Alice's public key is known to everybody playing the game. So if anybody has a gift suggestion, they can use Alice's public key to encrypt the message, and only Bob will be able to decrypt it. Bob now knows what to get Alice, and Alice has no idea what the suggestion was.
 
 ## How to run:
-This repo is very bare bones and just deals with distributing the assignments.
+This repo is very bare bones and just deals with generating assignments and public key.
 At the moment you'd need to print these out on a piece of paper and hand them out.
 To add players edit the players variable in players.py
 Once you do that, just run:
